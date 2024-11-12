@@ -9,6 +9,7 @@ import org.jgrapht.Graph;
 import org.jgrapht.graph.DefaultEdge;
 
 import java.util.EnumMap;
+import java.util.Map;
 
 public class ModelFactory {
 
@@ -20,11 +21,13 @@ public class ModelFactory {
         mapper.put(ModelType.SZNAJD, new SznajdModel());
     }
 
-    public static BaseModel createModel(ModelType type, Graph<Integer, DefaultEdge> network, int iterations){
+    public static BaseModel createModel(ModelType type, Map<Integer, Boolean> opinions, Graph<Integer, DefaultEdge> network, int iterations){
         if(mapper.containsKey(type)){
             BaseModel model = mapper.get(type);
-            model.setIterations(iterations);
             model.setNetwork(network);
+            model.setOpinions(opinions);
+            model.setIterations(iterations);
+            model.setN(network.vertexSet().size());
             return model;
         }
         else
