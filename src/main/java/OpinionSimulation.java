@@ -35,6 +35,12 @@ public class OpinionSimulation {
 
     public void printStatus() {
         int N = modelConfig.getOpinions().keySet().size();
+
+        if (N == 0){
+            System.out.println("[]");
+            return;
+        }
+
         System.out.print("[");
         for (int i = 0; i < N; i++) {
             System.out.print(modelConfig.getOpinions().get(i) + ", ");

@@ -33,6 +33,7 @@ final public class VoterModel extends BaseModel {
 
     @Override
     public void updateOpinion() {
+        if (N == 0) return;
         updateOpinion(getRandomAgent());
     }
 
