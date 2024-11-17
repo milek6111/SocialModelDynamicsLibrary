@@ -1,7 +1,7 @@
-package models.algorithms;
+package org.example.models.algorithms;
 
-import models.enums.AgentSelection;
-import models.enums.UpdatingStrategy;
+import org.example.models.enums.AgentSelection;
+import org.example.models.enums.UpdatingStrategy;
 import org.jgrapht.graph.DefaultEdge;
 
 import java.util.ArrayList;
@@ -54,6 +54,6 @@ final public class VoterModel extends BaseModel {
         }
 
         DefaultEdge chosenRelation = neighbors.get(getRandomAgentFromSize(neighbors.size()));
-        return network.getEdgeTarget(chosenRelation);
+        return !network.getEdgeTarget(chosenRelation).equals(agent) ? network.getEdgeTarget(chosenRelation) : network.getEdgeSource(chosenRelation);
     }
 }

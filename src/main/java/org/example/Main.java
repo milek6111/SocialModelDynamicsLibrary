@@ -1,9 +1,9 @@
-import models.config.ModelConfig;
-import models.enums.AgentSelection;
-import models.enums.ModelType;
-import models.enums.UpdatingStrategy;
-import models.factory.ModelFactory;
-import org.jgrapht.Graph;
+package org.example;
+
+import org.example.models.config.ModelConfig;
+import org.example.models.enums.AgentSelection;
+import org.example.models.enums.ModelType;
+import org.example.models.enums.UpdatingStrategy;
 import org.jgrapht.graph.DefaultEdge;
 import org.jgrapht.graph.SimpleGraph;
 
@@ -15,7 +15,7 @@ public class Main {
     public static void main(String[] args) {
         ModelConfig config = new ModelConfig();
         config.setAgentSelection(AgentSelection.RANDOM);
-        config.setType(ModelType.VOTER);
+        config.setType(ModelType.SZNAJD);
         config.setUpdatingStrategy(UpdatingStrategy.ONE_STEP);
 
         SimpleGraph<Integer, DefaultEdge> gridGraph = new SimpleGraph<>(DefaultEdge.class);

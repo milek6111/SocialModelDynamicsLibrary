@@ -1,8 +1,8 @@
-package models.algorithms;
+package org.example.models.algorithms;
 
 import lombok.Getter;
 import lombok.Setter;
-import models.enums.UpdatingStrategy;
+import org.example.models.enums.UpdatingStrategy;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -11,7 +11,7 @@ import java.util.List;
 @Getter
 @Setter
 final public class MajorityModel extends BaseModel {
-    private double percentage = 0.3;
+    private double percentage = 0.05;
 
     @Override
     public void updateOneTimeStampFurther() {

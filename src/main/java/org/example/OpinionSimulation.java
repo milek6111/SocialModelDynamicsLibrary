@@ -1,12 +1,12 @@
-import lombok.Getter;
-import models.algorithms.BaseModel;
-import models.config.ModelConfig;
-import models.enums.AgentSelection;
-import models.enums.ModelType;
+package org.example;
 
-import models.enums.UpdatingStrategy;
-import models.factory.ModelFactory;
-import org.jgrapht.Graph;
+import org.example.models.algorithms.BaseModel;
+import org.example.models.config.ModelConfig;
+import org.example.models.enums.AgentSelection;
+import org.example.models.enums.ModelType;
+
+import org.example.models.enums.UpdatingStrategy;
+import org.example.models.factory.ModelFactory;
 import org.jgrapht.graph.DefaultEdge;
 import org.jgrapht.graph.SimpleGraph;
 
@@ -29,7 +29,7 @@ public class OpinionSimulation {
     }
 
 
-    void simulate() {
+    public void simulate() {
         model.updateOneTimeStampFurther();
     }
 
@@ -58,5 +58,18 @@ public class OpinionSimulation {
 
     public ModelConfig getModelConfig() {
         return modelConfig;
+    }
+
+    public void randomizeWithBlueCoefficient(double blueCoefficient){
+        if(0.0 <= blueCoefficient && blueCoefficient <= 1.0){
+            model.randomizeOpinions(blueCoefficient);
+        }
+        else {
+            throw new IllegalArgumentException("coefficient must be in range [0, 1], but given was: " + blueCoefficient);
+        }
+    }
+
+    public void generateNewModel(){
+        model = ModelFactory.createModel(modelConfig);
     }
 }

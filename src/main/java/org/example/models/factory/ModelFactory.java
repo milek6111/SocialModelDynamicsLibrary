@@ -1,17 +1,13 @@
-package models.factory;
+package org.example.models.factory;
 
-import lombok.Builder;
-import models.algorithms.BaseModel;
-import models.algorithms.MajorityModel;
-import models.algorithms.SznajdModel;
-import models.algorithms.VoterModel;
-import models.config.ModelConfig;
-import models.enums.ModelType;
-import org.jgrapht.Graph;
-import org.jgrapht.graph.DefaultEdge;
+import org.example.models.algorithms.BaseModel;
+import org.example.models.algorithms.MajorityModel;
+import org.example.models.algorithms.SznajdModel;
+import org.example.models.algorithms.VoterModel;
+import org.example.models.config.ModelConfig;
+import org.example.models.enums.ModelType;
 
 import java.util.EnumMap;
-import java.util.Map;
 
 
 public class ModelFactory {

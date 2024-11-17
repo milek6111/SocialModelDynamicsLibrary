@@ -1,9 +1,9 @@
-package models.algorithms;
+package org.example.models.algorithms;
 
 import lombok.Getter;
 import lombok.Setter;
-import models.enums.AgentSelection;
-import models.enums.UpdatingStrategy;
+import org.example.models.enums.AgentSelection;
+import org.example.models.enums.UpdatingStrategy;
 import org.jgrapht.Graph;
 import org.jgrapht.graph.DefaultEdge;
 
@@ -38,10 +38,10 @@ abstract sealed public class BaseModel permits MajorityModel, VoterModel, Sznajd
         return randomGenerator.nextInt(size);
     }
 
-    protected void randomizeOpinions(double trueCoefficient) {
-        opinions = new HashMap<>();
+    public void randomizeOpinions(double blueCoefficient) {
+        opinions.clear();
         for (int i = 0; i < N; i++) {
-            opinions.put(i, randomGenerator.nextDouble() < trueCoefficient);
+            opinions.put(i, randomGenerator.nextDouble() > blueCoefficient);
         }
     }
 }

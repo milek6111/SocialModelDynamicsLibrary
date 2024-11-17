@@ -1,7 +1,7 @@
-package models.algorithms;
+package org.example.models.algorithms;
 
-import models.enums.AgentSelection;
-import models.enums.UpdatingStrategy;
+import org.example.models.enums.AgentSelection;
+import org.example.models.enums.UpdatingStrategy;
 import org.jgrapht.graph.DefaultEdge;
 
 import java.util.ArrayList;
@@ -28,7 +28,7 @@ final public class SznajdModel extends BaseModel {
                 updateOpinion();
             } else {
                 updateOpinion(currentNode);
-                currentNode = (currentNode++ >= N) ? 0 : currentNode;
+                currentNode = (++currentNode >= N) ? 0 : currentNode;
             }
         }
     }
@@ -72,17 +72,19 @@ final public class SznajdModel extends BaseModel {
 
         Set<Integer> allNeighbours = firstAgentNeighbours.stream()
                 .map(x -> {
-                    return network.getEdgeTarget(x);
+                    return !network.getEdgeTarget(x).equals(firstAgent) ? network.getEdgeTarget(x) : network.getEdgeSource(x);
                 })
                 .collect(Collectors.toSet());
 
         Set<Integer> temp = secondAgentNeighbours.stream()
                 .map(x -> {
-                    return network.getEdgeTarget(x);
+                    return !network.getEdgeTarget(x).equals(secondAgent) ? network.getEdgeTarget(x) : network.getEdgeSource(x);
                 })
                 .collect(Collectors.toSet());
 
         allNeighbours.addAll(temp);
+        allNeighbours.remove(firstAgent);
+        allNeighbours.remove(secondAgent);
 
         return allNeighbours;
     }
@@ -95,7 +97,7 @@ final public class SznajdModel extends BaseModel {
 
         DefaultEdge edge = defaultEdges.get(getRandomAgentFromSize(defaultEdges.size()));
 
-        return network.getEdgeTarget(edge);
+        return !network.getEdgeTarget(edge).equals(agent) ? network.getEdgeTarget(edge) : network.getEdgeSource(edge);
 
     }
 }
