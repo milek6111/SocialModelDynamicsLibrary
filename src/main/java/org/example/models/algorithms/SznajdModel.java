@@ -100,4 +100,8 @@ final public class SznajdModel extends BaseModel {
         return !network.getEdgeTarget(edge).equals(agent) ? network.getEdgeTarget(edge) : network.getEdgeSource(edge);
 
     }
+
+    public void setCurrentNode(int val){
+        currentNode = val;
+    }
 }

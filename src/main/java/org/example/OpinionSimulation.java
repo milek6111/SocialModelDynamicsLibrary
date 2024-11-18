@@ -1,6 +1,9 @@
 package org.example;
 
 import org.example.models.algorithms.BaseModel;
+import org.example.models.algorithms.MajorityModel;
+import org.example.models.algorithms.SznajdModel;
+import org.example.models.algorithms.VoterModel;
 import org.example.models.config.ModelConfig;
 import org.example.models.enums.AgentSelection;
 import org.example.models.enums.ModelType;
@@ -71,5 +74,14 @@ public class OpinionSimulation {
 
     public void generateNewModel(){
         model = ModelFactory.createModel(modelConfig);
+    }
+
+    public void setCurrentNodeForSequential(int val){
+        if(model instanceof SznajdModel){
+            ((SznajdModel) model).setCurrentNode(val);
+        }
+        if(model instanceof VoterModel){
+            ((VoterModel) model).setCurrentNode(val);
+        }
     }
 }

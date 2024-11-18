@@ -56,4 +56,8 @@ final public class VoterModel extends BaseModel {
         DefaultEdge chosenRelation = neighbors.get(getRandomAgentFromSize(neighbors.size()));
         return !network.getEdgeTarget(chosenRelation).equals(agent) ? network.getEdgeTarget(chosenRelation) : network.getEdgeSource(chosenRelation);
     }
+
+    public void setCurrentNode(int val){
+        currentNode = val;
+    }
 }

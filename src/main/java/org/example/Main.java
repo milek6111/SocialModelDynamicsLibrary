@@ -54,6 +54,9 @@ public class Main {
         System.out.println("Wierzchołki: " + gridGraph.vertexSet());
         System.out.println("Krawędzie: " + gridGraph.edgeSet());
 
+//        gridGraph.removeEdge(0,1);
+//        System.out.println("Krawędzie: " + gridGraph.edgeSet());
+
 
         OpinionSimulation simulation = new OpinionSimulation(config);
 
