@@ -84,4 +84,8 @@ public class OpinionSimulation {
             ((VoterModel) model).setCurrentNode(val);
         }
     }
+
+    public void setMajorityModelCoeff(double coeff){
+        model.setMajorityModelPercentageCoeff(coeff);
+    }
 }

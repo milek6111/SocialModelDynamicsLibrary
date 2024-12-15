@@ -44,4 +44,8 @@ abstract sealed public class BaseModel permits MajorityModel, VoterModel, Sznajd
             opinions.put(i, randomGenerator.nextDouble() > blueCoefficient);
         }
     }
+
+    public void setMajorityModelPercentageCoeff(double coeff){
+
+    }
 }

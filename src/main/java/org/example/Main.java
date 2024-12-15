@@ -48,11 +48,15 @@ public class Main {
             opinions.put(i,new Random().nextBoolean());
         }
 
-        config.setNetwork(gridGraph);
-        config.setOpinions(opinions);
+        //config.setNetwork(gridGraph);
+//        config.graphFromNeighbourMatrix(new int[][]{{0,1}, {1,0}});
+        //config.setOpinions(opinions);
+        //config.generateFullGraph(100);
+        config.generateSquareGraph(5);
+        config.randomizeOpinions();
 
-        System.out.println("Wierzchołki: " + gridGraph.vertexSet());
-        System.out.println("Krawędzie: " + gridGraph.edgeSet());
+        System.out.println("Wierzchołki: " + config.getNetwork().vertexSet());
+        System.out.println("Krawędzie: " + config.getNetwork().edgeSet());
 
 //        gridGraph.removeEdge(0,1);
 //        System.out.println("Krawędzie: " + gridGraph.edgeSet());

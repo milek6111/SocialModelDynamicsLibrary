@@ -67,4 +67,12 @@ final public class MajorityModel extends BaseModel {
             opinions.put(agent, opinion);
         }
     }
+
+    @Override
+    public void setMajorityModelPercentageCoeff(double coeff) {
+        if(coeff <= 0 || coeff >= 1){
+            throw new IllegalArgumentException("Majority Model coefficient must be between 0 and 1");
+        }
+        percentage = coeff;
+    }
 }
