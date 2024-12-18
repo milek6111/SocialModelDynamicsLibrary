@@ -8,9 +8,21 @@ import java.util.ArrayList;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+/**
+ * SznajdModel class that extends the BaseModel.
+ * This class implements the Sznajd model for opinion dynamics.
+ */
 final public class SznajdModel extends BaseModel {
+    /**
+     * The current node being processed.
+     */
     private int currentNode = 0;
 
+    /**
+     * Updates the model by one time step.
+     * If the updating strategy is N_TIMES, it updates the opinions N times.
+     * Otherwise, it updates the opinions once.
+     */
     @Override
     public void updateOneTimeStampFurther() {
         if (updatingStrategy.equals(UpdatingStrategy.N_TIMES)) {
@@ -33,15 +45,25 @@ final public class SznajdModel extends BaseModel {
         }
     }
 
+    /**
+     * Updates the opinions of agents based on the Sznajd model.
+     * It selects a random agent and updates its opinion.
+     */
     @Override
     public void updateOpinion() {
         if (N == 0) return;
         updateOpinion(getRandomAgent());
     }
 
+    /**
+     * Updates the opinion of a specific agent.
+     * It finds a neighbor of the agent and checks if they agree.
+     * If they agree, it updates the opinions of all their neighbors.
+     *
+     * @param agent the ID of the agent whose opinion is to be updated
+     */
     @Override
     public void updateOpinion(Integer agent) {
-
         int firstNeighbour = agent;
         int secondNeighbour = findNeighbour(firstNeighbour);
 
@@ -62,10 +84,15 @@ final public class SznajdModel extends BaseModel {
         for (Integer vertex : allNeighbours) {
             opinions.put(vertex, agreedOpinion);
         }
-
-
     }
 
+    /**
+     * Gets all the neighbors of two agents.
+     *
+     * @param firstAgent the ID of the first agent
+     * @param secondAgent the ID of the second agent
+     * @return a set of IDs representing all the neighbors of the two agents
+     */
     private Set<Integer> getAllNeighbours(int firstAgent, int secondAgent) {
         Set<DefaultEdge> firstAgentNeighbours = network.outgoingEdgesOf(firstAgent);
         Set<DefaultEdge> secondAgentNeighbours = network.outgoingEdgesOf(secondAgent);
@@ -89,19 +116,28 @@ final public class SznajdModel extends BaseModel {
         return allNeighbours;
     }
 
+    /**
+     * Finds a neighbor of a given agent.
+     *
+     * @param agent the ID of the agent
+     * @return the ID of a neighbor, or -1 if no neighbors are found
+     */
     private int findNeighbour(int agent) {
-
-        ArrayList<DefaultEdge> defaultEdges = new ArrayList<DefaultEdge>(network.outgoingEdgesOf(agent));
+        ArrayList<DefaultEdge> defaultEdges = new ArrayList<>(network.outgoingEdgesOf(agent));
 
         if (defaultEdges.isEmpty()) return -1;
 
         DefaultEdge edge = defaultEdges.get(getRandomAgentFromSize(defaultEdges.size()));
 
         return !network.getEdgeTarget(edge).equals(agent) ? network.getEdgeTarget(edge) : network.getEdgeSource(edge);
-
     }
 
-    public void setCurrentNode(int val){
+    /**
+     * Sets the current node being processed.
+     *
+     * @param val the value to set as the current node
+     */
+    public void setCurrentNode(int val) {
         currentNode = val;
     }
 }

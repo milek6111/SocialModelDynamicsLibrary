@@ -9,10 +9,15 @@ import org.example.models.enums.ModelType;
 
 import java.util.EnumMap;
 
-
+/**
+ * Factory class for creating model instances based on the configuration.
+ */
 public class ModelFactory {
 
-    public static EnumMap<ModelType, BaseModel> mapper= new EnumMap<>(ModelType.class);
+    /**
+     * A map that associates each ModelType with its corresponding BaseModel instance.
+     */
+    public static EnumMap<ModelType, BaseModel> mapper = new EnumMap<>(ModelType.class);
 
     static {
         mapper.put(ModelType.VOTER, new VoterModel());
@@ -20,8 +25,15 @@ public class ModelFactory {
         mapper.put(ModelType.SZNAJD, new SznajdModel());
     }
 
-    public static BaseModel createModel(ModelConfig config){
-        if(mapper.containsKey(config.getType())){
+    /**
+     * Creates a model instance based on the provided configuration.
+     *
+     * @param config the configuration for the model
+     * @return the created model instance
+     * @throws IllegalArgumentException if no model is found for the specified type
+     */
+    public static BaseModel createModel(ModelConfig config) {
+        if (mapper.containsKey(config.getType())) {
             BaseModel model = mapper.get(config.getType());
             model.setAgentSelection(config.getAgentSelection());
             model.setUpdatingStrategy(config.getUpdatingStrategy());
@@ -29,8 +41,8 @@ public class ModelFactory {
             model.setOpinions(config.getOpinions());
             model.setN(config.getNetwork().vertexSet().size());
             return model;
-        }
-        else
+        } else {
             throw new IllegalArgumentException("No model found for: " + config.getType());
+        }
     }
 }
