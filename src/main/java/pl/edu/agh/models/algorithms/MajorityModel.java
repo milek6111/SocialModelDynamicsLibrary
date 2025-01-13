@@ -1,8 +1,8 @@
-package org.example.models.algorithms;
+package pl.edu.agh.models.algorithms;
 
 import lombok.Getter;
 import lombok.Setter;
-import org.example.models.enums.UpdatingStrategy;
+import pl.edu.agh.models.enums.UpdatingStrategy;
 
 import java.util.ArrayList;
 import java.util.Collections;

@@ -1,11 +1,11 @@
-package org.example.models.factory;
+package pl.edu.agh.models.factory;
 
-import org.example.models.algorithms.BaseModel;
-import org.example.models.algorithms.MajorityModel;
-import org.example.models.algorithms.SznajdModel;
-import org.example.models.algorithms.VoterModel;
-import org.example.models.config.ModelConfig;
-import org.example.models.enums.ModelType;
+import pl.edu.agh.models.algorithms.BaseModel;
+import pl.edu.agh.models.algorithms.MajorityModel;
+import pl.edu.agh.models.algorithms.SznajdModel;
+import pl.edu.agh.models.algorithms.VoterModel;
+import pl.edu.agh.models.config.ModelConfig;
+import pl.edu.agh.models.enums.ModelType;
 
 import java.util.EnumMap;
 

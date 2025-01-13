@@ -1,4 +1,4 @@
-package org.example.models.enums;
+package pl.edu.agh.models.enums;
 
 /**
  * Enum representing the strategy for updating opinions in the model.

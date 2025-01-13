@@ -1,9 +1,9 @@
-package org.example.models.config;
+package pl.edu.agh.models.config;
 
 import lombok.*;
-import org.example.models.enums.AgentSelection;
-import org.example.models.enums.ModelType;
-import org.example.models.enums.UpdatingStrategy;
+import pl.edu.agh.models.enums.AgentSelection;
+import pl.edu.agh.models.enums.ModelType;
+import pl.edu.agh.models.enums.UpdatingStrategy;
 import org.jgrapht.graph.DefaultEdge;
 import org.jgrapht.graph.SimpleGraph;
 

@@ -1,7 +1,7 @@
-package org.example.models.algorithms;
+package pl.edu.agh.models.algorithms;
 
-import org.example.models.enums.AgentSelection;
-import org.example.models.enums.UpdatingStrategy;
+import pl.edu.agh.models.enums.AgentSelection;
+import pl.edu.agh.models.enums.UpdatingStrategy;
 import org.jgrapht.graph.DefaultEdge;
 
 import java.util.ArrayList;
